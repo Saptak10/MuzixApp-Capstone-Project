@@ -1,16 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import MusicPlayer from './components/MusicPlayer';
+import PageNotfound from './components/PageNotfound';
 
 function App() {
   return (
-    <div className="App">
+    <Router className="App">
       <Navbar />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<PageNotfound />} />
+      </Routes>
       <MusicPlayer />
-    </div>
+    </Router>
   );
 }
 
